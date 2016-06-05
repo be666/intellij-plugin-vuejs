@@ -1,0 +1,23 @@
+{
+  parserClass="org.bcaring.intellj.vue.parser.VueParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Vue"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.bcaring.intellj.vue.psi"
+  psiImplPackage="org.bcaring.intellj.vue.psi.impl"
+
+  elementTypeHolderClass="org.bcaring.intellj.vue.psi.VueTypes"
+  elementTypeClass="org.bcaring.intellj.vue.psi.VueElementType"
+  tokenTypeClass="org.bcaring.intellj.vue.psi.VueTokenType"
+
+  psiImplUtilClass="org.bcaring.intellj.vue.psi.impl.VuePsiImplUtil"
+
+}
+
+vueFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) |  KEY {methods=[getKey getValue]}

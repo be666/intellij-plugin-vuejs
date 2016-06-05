@@ -1,0 +1,85 @@
+<idea-plugin version="2">
+    <id>com.your.company.unique.plugin.id</id>
+    <name>Plugin display name here</name>
+    <version>1.0</version>
+    <vendor email="bcaring@163.com" url="http://www.bcaring.cn">bcaring</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Add your extensions here -->
+        <fileTypeFactory implementation="org.bcaring.intellj.vue.VueFileTypeFactory"/>
+
+        <lang.parserDefinition language="Vue"
+                               implementationClass="org.bcaring.intellj.vue.VueParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory
+                key="Vue"
+                implementationClass="org.bcaring.intellj.vue.VueSyntaxHighlighterFactory"/>
+
+        <colorSettingsPage
+                implementation="org.bcaring.intellj.vue.VueColorSettingsPage"/>
+
+        <annotator language="Vue"
+                   implementationClass="org.bcaring.intellj.vue.VueAnnotator"/>
+
+        <codeInsight.lineMarkerProvider
+                language="Vue"
+                implementationClass="org.bcaring.intellj.vue.VueLineMarkerProvider"/>
+
+        <completion.contributor
+                language="Vue"
+                implementationClass="org.bcaring.intellj.vue.VueCompletionContributor"/>
+
+        <psi.referenceContributor implementation="org.bcaring.intellj.vue.VueReferenceContributor"/>
+
+        <lang.findUsagesProvider language="Vue" implementationClass="org.bcaring.intellj.vue.VueFindUsagesProvider"/>
+
+        <lang.refactoringSupport language="Vue"
+                                 implementationClass="org.bcaring.intellj.vue.VueRefactoringSupportProvider"/>
+
+        <lang.foldingBuilder language="Vue" implementationClass="org.bcaring.intellj.vue.VueFoldingBuilder"/>
+
+        <gotoSymbolContributor implementation="org.bcaring.intellj.vue.VueChooseByNameContributor"/>
+
+        <lang.psiStructureViewFactory language="Vue"
+                                      implementationClass="org.bcaring.intellj.vue.VueStructureViewFactory"/>
+
+        <lang.formatter language="Vue" implementationClass="org.bcaring.intellj.vue.VueFormattingModelBuilder"/>
+
+
+        <codeStyleSettingsProvider implementation="org.bcaring.intellj.vue.VueCodeStyleSettingsProvider"/>
+
+        <langCodeStyleSettingsProvider implementation="org.bcaring.intellj.vue.VueLanguageCodeStyleSettingsProvider"/>
+
+        <lang.commenter language="Vue" implementationClass="org.bcaring.intellj.vue.VueCommenter"/>
+
+        <todoIndexer filetype="Vue" implementationClass="org.bcaring.intellj.vue.VueTodoIndexer"/>
+    </extensions>
+
+
+    <actions>
+        <!-- Add your actions here -->
+
+    </actions>
+
+</idea-plugin>
